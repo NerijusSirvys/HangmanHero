@@ -5,11 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -44,10 +40,18 @@ class MainActivity : ComponentActivity() {
                                 val topKeys by vm.topRowState.collectAsStateWithLifecycle()
                                 val middleKeys by vm.midRowState.collectAsStateWithLifecycle()
                                 val bottomKeys by vm.bottomRowState.collectAsStateWithLifecycle()
+
+                                val weakHint by vm.weakHintState.collectAsStateWithLifecycle()
+                                val mediumHint by vm.mediumHintState.collectAsStateWithLifecycle()
+                                val stringHint by vm.strongHintState.collectAsStateWithLifecycle()
+
                                 GameScreen(
                                     topRowKeys = topKeys,
                                     middleRowKeys = middleKeys,
                                     bottomRowKeys = bottomKeys,
+                                    weakHint = weakHint,
+                                    mediumHint = mediumHint,
+                                    strongHint = stringHint,
                                     onActions = vm::onAction
                                 )
                             }

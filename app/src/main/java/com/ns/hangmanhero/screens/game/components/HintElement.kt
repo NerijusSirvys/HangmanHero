@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -45,10 +47,13 @@ fun HintElement(
                     )
                 } else {
                     Row {
-                        for (count in 1..keyCount) {
-                            Image(
-                                painter = painterResource(R.drawable.icon_key), contentDescription = null
+                        for (count in 0..keyCount) {
+                            Icon(
+                                painter = painterResource(R.drawable.icon_key),
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                             )
+
                         }
                     }
                     Text(
