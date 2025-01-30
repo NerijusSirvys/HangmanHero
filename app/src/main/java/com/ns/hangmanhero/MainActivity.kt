@@ -13,6 +13,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ns.hangmanhero.navigation.Destinations
+import com.ns.hangmanhero.screens.game.GameScreen
+import com.ns.hangmanhero.screens.game_over.GameOverScreen
+import com.ns.hangmanhero.screens.next_level.NextLevelScreen
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,9 +27,9 @@ class MainActivity : ComponentActivity() {
                 Surface {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = Destinations.GameScreen){
-                        composable<Destinations.GameScreen> {  }
-                        composable<Destinations.GameOverScreen> {  }
-                        composable<Destinations.NextLevelScreen> {  }
+                        composable<Destinations.GameScreen> { GameScreen() }
+                        composable<Destinations.GameOverScreen> { GameOverScreen() }
+                        composable<Destinations.NextLevelScreen> { NextLevelScreen() }
                     }
                 }
             }
