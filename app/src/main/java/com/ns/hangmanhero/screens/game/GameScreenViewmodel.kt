@@ -2,10 +2,10 @@ package com.ns.hangmanhero.screens.game
 
 import androidx.lifecycle.ViewModel
 import com.ns.hangmanhero.HangmanService
+import com.ns.hangmanhero.StateFactory
 import com.ns.hangmanhero.data.Difficulty
 import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Strength
-import com.ns.hangmanhero.mappers.toHintElementState
 import com.ns.hangmanhero.screens.game.data.KeyboardRow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -16,15 +16,19 @@ class GameScreenViewmodel(
 
     private val level: Level = service.getLevel(Difficulty.EASY)
 
-    val topRowState = MutableStateFlow(service.getKeyboardKeys(KeyboardRow.TOP))
-    val midRowState = MutableStateFlow(service.getKeyboardKeys(KeyboardRow.MIDDLE))
-    val bottomRowState = MutableStateFlow(service.getKeyboardKeys(KeyboardRow.BOTTOM))
+    val topRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.TOP))
+    val midRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.MIDDLE))
+    val bottomRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.BOTTOM))
 
-    val weakHintState = MutableStateFlow(level.hints.find { it.strength == Strength.WEAK }!!.toHintElementState())
-    val mediumHintState = MutableStateFlow(level.hints.find { it.strength == Strength.MEDIUM }!!.toHintElementState())
-    val strongHintState = MutableStateFlow(level.hints.find { it.strength == Strength.STRONG }!!.toHintElementState())
+    val weakHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.WEAK))
+    val mediumHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.MEDIUM))
+    val strongHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.STRONG))
+
+    val answerState = MutableStateFlow(StateFactory.createAnswerState(level.answer))
+    val clueState = MutableStateFlow(level.clue)
 
     fun onAction(action: GameScreenActions) {
+
         when (action) {
             is GameScreenActions.MakeAGuess -> guessLetter(action.character, action.row)
             is GameScreenActions.ShowHint -> showHint(action.strength)
@@ -71,5 +75,23 @@ class GameScreenViewmodel(
                 bottomRowState.value = mutableKeys.toList()
             }
         }
+
+        val answer = answerState.value.toMutableList()
+
+        val indexes = mutableListOf<Int>()
+        answer.forEachIndexed { i, c ->
+            if (c.letter == character) {
+                indexes.add(i)
+            }
+        }
+
+        if (indexes.isEmpty()) return
+
+        indexes.forEach {
+            answer[it] = answer[it].copy(show = true)
+        }
+
+        answerState.value = answer.toList()
+
     }
 }

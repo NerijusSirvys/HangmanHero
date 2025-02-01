@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 KoinContext {
                     Surface {
                         val navController = rememberNavController()
-                        NavHost(navController = navController, startDestination = Destinations.GameScreen){
+                        NavHost(navController = navController, startDestination = Destinations.GameScreen) {
                             composable<Destinations.GameScreen> {
                                 val vm = koinViewModel<GameScreenViewmodel>()
                                 val topKeys by vm.topRowState.collectAsStateWithLifecycle()
@@ -45,6 +45,9 @@ class MainActivity : ComponentActivity() {
                                 val mediumHint by vm.mediumHintState.collectAsStateWithLifecycle()
                                 val stringHint by vm.strongHintState.collectAsStateWithLifecycle()
 
+                                val answer by vm.answerState.collectAsStateWithLifecycle()
+                                val clue by vm.clueState.collectAsStateWithLifecycle()
+
                                 GameScreen(
                                     topRowKeys = topKeys,
                                     middleRowKeys = middleKeys,
@@ -52,6 +55,8 @@ class MainActivity : ComponentActivity() {
                                     weakHint = weakHint,
                                     mediumHint = mediumHint,
                                     strongHint = stringHint,
+                                    answer = answer,
+                                    clue = clue,
                                     onActions = vm::onAction
                                 )
                             }

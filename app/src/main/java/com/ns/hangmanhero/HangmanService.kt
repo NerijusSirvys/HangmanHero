@@ -4,18 +4,10 @@ import com.ns.hangmanhero.data.Difficulty
 import com.ns.hangmanhero.data.Hint
 import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Strength
-import com.ns.hangmanhero.screens.game.data.KeyboardRow
-import com.ns.hangmanhero.screens.game.states.KeyboardKeyState
 import java.util.UUID
 
 class HangmanService {
-    fun getKeyboardKeys(row: KeyboardRow): List<KeyboardKeyState> {
-        return when(row){
-            KeyboardRow.TOP -> "qwertyuiop".map { KeyboardKeyState(it, true) }
-            KeyboardRow.MIDDLE -> "asdfghjkl".map { KeyboardKeyState(it, true) }
-            KeyboardRow.BOTTOM -> "zxcvbnm".map { KeyboardKeyState(it, true) }
-        }
-    }
+
 
     fun getLevel(difficulty: Difficulty): Level {
         return Level(
@@ -42,4 +34,5 @@ class HangmanService {
             )
         )
     }
+
 }

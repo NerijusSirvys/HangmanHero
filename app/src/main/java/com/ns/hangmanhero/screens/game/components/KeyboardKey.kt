@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 
 @Composable
@@ -21,7 +22,7 @@ fun KeyboardKey(
     character: Char
 ) {
     OutlinedCard(
-        modifier = modifier.size(30.dp),
+        modifier = modifier.size(36.dp),
         onClick = { onClick.invoke(character) },
         enabled = enabled
 
@@ -30,7 +31,10 @@ fun KeyboardKey(
             contentAlignment = Alignment.Center,
             modifier = modifier.fillMaxSize()
         ) {
-            Text(text = character.lowercase())
+            Text(
+                text = character.lowercase(),
+                fontSize = 20.sp
+            )
         }
     }
 }
