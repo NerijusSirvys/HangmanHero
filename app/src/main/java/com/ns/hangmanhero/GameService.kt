@@ -6,7 +6,7 @@ import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Strength
 import java.util.UUID
 
-class HangmanService {
+class GameService {
 
 
     fun getLevel(difficulty: Difficulty): Level {

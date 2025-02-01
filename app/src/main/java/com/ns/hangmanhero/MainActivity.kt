@@ -4,18 +4,37 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Surface
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.ns.hangmanhero.navigation.Destinations
-import com.ns.hangmanhero.screens.game.GameScreen
-import com.ns.hangmanhero.screens.game.GameScreenViewmodel
-import com.ns.hangmanhero.screens.game_over.GameOverScreen
-import com.ns.hangmanhero.screens.next_level.NextLevelScreen
+import com.ns.hangmanhero.data.Stage
+import com.ns.hangmanhero.stages.game_play.GamePlayStage
+import com.ns.hangmanhero.stages.game_play.components.InfoTab
+import com.ns.hangmanhero.stages.game_over.GameOverScreen
+import com.ns.hangmanhero.stages.next_level.NextLevelScreen
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
+import com.ns.hangmanhero.utils.FrameHelpers
+import com.ns.hangmanhero.utils.ObserveAsEvents
+import com.ns.hangmanhero.utils.SnackbarController
+import kotlinx.coroutines.launch
+import org.koin.android.ext.koin.androidContext
 import org.koin.compose.KoinContext
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.context.startKoin
@@ -23,29 +42,74 @@ import org.koin.core.context.startKoin
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         startKoin {
+            androidContext(this@MainActivity)
             modules(appModule)
         }
-
         enableEdgeToEdge()
         setContent {
+            val snackbarHostState = remember { SnackbarHostState() }
+
+            val scope = rememberCoroutineScope()
+            ObserveAsEvents(
+                flow = SnackbarController.events,
+                key1 = snackbarHostState
+            ) { event ->
+                scope.launch {
+                    snackbarHostState.currentSnackbarData?.dismiss()
+                    snackbarHostState.showSnackbar(
+                        message = event.message,
+                        duration = SnackbarDuration.Short
+                    )
+                }
+            }
+
+            val vm = koinViewModel<GameViewmodel>()
+            val state by vm.state.collectAsStateWithLifecycle()
             HangmanHeroTheme {
                 KoinContext {
-                    Surface {
-                        val navController = rememberNavController()
-                        NavHost(navController = navController, startDestination = Destinations.GameScreen) {
-                            composable<Destinations.GameScreen> {
-                                val vm = koinViewModel<GameScreenViewmodel>()
-                                val state by vm.state.collectAsStateWithLifecycle()
-
-                                GameScreen(
-                                    onActions = vm::onAction,
-                                    state = state
+                    Scaffold(
+                        snackbarHost = { SnackbarHost(snackbarHostState) }
+                    ) { innerPadding ->
+                        Column(
+                            modifier = Modifier
+                                .padding(innerPadding)
+                                .padding(horizontal = 15.dp)
+                                .fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .padding(25.dp)
+                                        .align(Alignment.TopStart)
+                                ) {
+                                    InfoTab(
+                                        iconId = R.drawable.icon_key,
+                                        value = state.keyCount
+                                    )
+                                }
+                                Image(
+                                    painter = painterResource(FrameHelpers.updateFrame(state.remainingGuesses)),
+                                    contentDescription = null,
                                 )
                             }
-                            composable<Destinations.GameOverScreen> { GameOverScreen() }
-                            composable<Destinations.NextLevelScreen> { NextLevelScreen() }
+
+                            Spacer(Modifier.height(25.dp))
+
+                            AnimatedContent(
+                                targetState = state.stage,
+                            ) {
+                                when (it) {
+                                    Stage.Game -> GamePlayStage(state = state, onAction = vm::onGameScreenAction)
+                                    Stage.GameOver -> GameOverScreen(onAction = vm::onGameOverAction)
+                                    Stage.NextLevel -> NextLevelScreen()
+                                }
+                            }
                         }
                     }
                 }

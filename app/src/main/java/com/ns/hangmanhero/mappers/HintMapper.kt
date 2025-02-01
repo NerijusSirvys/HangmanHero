@@ -1,7 +1,7 @@
 package com.ns.hangmanhero.mappers
 
 import com.ns.hangmanhero.data.Hint
-import com.ns.hangmanhero.screens.game.states.HintElementState
+import com.ns.hangmanhero.state.HintElementState
 
 fun Hint.toHintElementState(): HintElementState {
     return HintElementState(

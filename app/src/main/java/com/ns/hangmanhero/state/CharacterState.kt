@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.screens.game.states
+package com.ns.hangmanhero.state
 
 data class CharacterState(
     val letter: Char,

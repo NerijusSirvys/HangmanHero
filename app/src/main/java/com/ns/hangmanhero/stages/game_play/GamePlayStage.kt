@@ -1,13 +1,11 @@
-package com.ns.hangmanhero.screens.game
+package com.ns.hangmanhero.stages.game_play
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,21 +14,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ns.hangmanhero.screens.game.components.CharacterElement
-import com.ns.hangmanhero.screens.game.components.HintElement
-import com.ns.hangmanhero.screens.game.components.KeyboardKeyRow
-import com.ns.hangmanhero.screens.game.states.GameScreenState
+import com.ns.hangmanhero.actions.GamePlayActions
+import com.ns.hangmanhero.stages.game_play.components.CharacterElement
+import com.ns.hangmanhero.stages.game_play.components.HintElement
+import com.ns.hangmanhero.stages.game_play.components.KeyboardKeyRow
+import com.ns.hangmanhero.state.GameState
 
 @Composable
-fun GameScreen(
+fun GamePlayStage(
     modifier: Modifier = Modifier,
-    state: GameScreenState,
-    onActions: (GameScreenActions) -> Unit
+    state: GameState,
+    onAction: (GamePlayActions) -> Unit
 ) {
     Box(
-        contentAlignment = Alignment.Center, modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 15.dp)
+        contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -61,7 +58,7 @@ fun GameScreen(
                         keyCount = v.cost,
                         text = v.text,
                         show = !v.isEnabled,
-                        onClick = { onActions(GameScreenActions.ShowHint(k)) }
+                        onClick = { onAction(GamePlayActions.ShowHint(k)) }
                     )
                 }
             }
@@ -75,7 +72,7 @@ fun GameScreen(
                 state.keyboard.forEach { (k, v) ->
                     KeyboardKeyRow(
                         keys = v,
-                        onClick = { onActions.invoke(GameScreenActions.MakeAGuess(it, k)) })
+                        onClick = { onAction.invoke(GamePlayActions.MakeAGuess(it, k)) })
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.screens.game_over
+package com.ns.hangmanhero.stages.next_level
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun GameOverScreen(modifier: Modifier = Modifier) {
+fun NextLevelScreen(modifier: Modifier = Modifier) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = "Game Over Screen")
+        Text(text = "Next Level Screen")
     }
 }

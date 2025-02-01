@@ -1,11 +1,11 @@
-package com.ns.hangmanhero.screens.game.components
+package com.ns.hangmanhero.stages.game_play.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ns.hangmanhero.screens.game.states.KeyboardKeyState
+import com.ns.hangmanhero.state.KeyboardKeyState
 
 @Composable
 fun KeyboardKeyRow(

@@ -1,6 +1,5 @@
-package com.ns.hangmanhero.screens.game.components
+package com.ns.hangmanhero.stages.game_play.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

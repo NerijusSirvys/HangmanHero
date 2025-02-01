@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.screens.game.components
+package com.ns.hangmanhero.stages.game_play.components
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween

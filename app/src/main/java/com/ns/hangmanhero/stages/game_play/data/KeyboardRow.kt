@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.screens.game.data
+package com.ns.hangmanhero.stages.game_play.data
 
 enum class KeyboardRow {
     TOP,
