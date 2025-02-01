@@ -25,7 +25,6 @@ fun KeyboardKey(
         modifier = modifier.size(36.dp),
         onClick = { onClick.invoke(character) },
         enabled = enabled
-
     ) {
         Box(
             contentAlignment = Alignment.Center,

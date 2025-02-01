@@ -37,27 +37,11 @@ class MainActivity : ComponentActivity() {
                         NavHost(navController = navController, startDestination = Destinations.GameScreen) {
                             composable<Destinations.GameScreen> {
                                 val vm = koinViewModel<GameScreenViewmodel>()
-                                val topKeys by vm.topRowState.collectAsStateWithLifecycle()
-                                val middleKeys by vm.midRowState.collectAsStateWithLifecycle()
-                                val bottomKeys by vm.bottomRowState.collectAsStateWithLifecycle()
-
-                                val weakHint by vm.weakHintState.collectAsStateWithLifecycle()
-                                val mediumHint by vm.mediumHintState.collectAsStateWithLifecycle()
-                                val stringHint by vm.strongHintState.collectAsStateWithLifecycle()
-
-                                val answer by vm.answerState.collectAsStateWithLifecycle()
-                                val clue by vm.clueState.collectAsStateWithLifecycle()
+                                val state by vm.state.collectAsStateWithLifecycle()
 
                                 GameScreen(
-                                    topRowKeys = topKeys,
-                                    middleRowKeys = middleKeys,
-                                    bottomRowKeys = bottomKeys,
-                                    weakHint = weakHint,
-                                    mediumHint = mediumHint,
-                                    strongHint = stringHint,
-                                    answer = answer,
-                                    clue = clue,
-                                    onActions = vm::onAction
+                                    onActions = vm::onAction,
+                                    state = state
                                 )
                             }
                             composable<Destinations.GameOverScreen> { GameOverScreen() }

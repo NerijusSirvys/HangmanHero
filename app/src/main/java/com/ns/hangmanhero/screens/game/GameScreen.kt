@@ -16,26 +16,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ns.hangmanhero.data.Strength
 import com.ns.hangmanhero.screens.game.components.CharacterElement
 import com.ns.hangmanhero.screens.game.components.HintElement
 import com.ns.hangmanhero.screens.game.components.KeyboardKeyRow
-import com.ns.hangmanhero.screens.game.data.KeyboardRow
-import com.ns.hangmanhero.screens.game.states.CharacterState
-import com.ns.hangmanhero.screens.game.states.HintElementState
-import com.ns.hangmanhero.screens.game.states.KeyboardKeyState
+import com.ns.hangmanhero.screens.game.states.GameScreenState
 
 @Composable
 fun GameScreen(
     modifier: Modifier = Modifier,
-    topRowKeys: List<KeyboardKeyState>,
-    middleRowKeys: List<KeyboardKeyState>,
-    bottomRowKeys: List<KeyboardKeyState>,
-    weakHint: HintElementState,
-    mediumHint: HintElementState,
-    strongHint: HintElementState,
-    answer: List<CharacterState>,
-    clue: String,
+    state: GameScreenState,
     onActions: (GameScreenActions) -> Unit
 ) {
     Box(
@@ -46,16 +35,15 @@ fun GameScreen(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
             Text(
-                text = clue,
+                text = state.clue,
                 textAlign = TextAlign.Center,
                 fontSize = 20.sp
             )
 
             Spacer(modifier.height(25.dp))
 
-
             Row {
-                answer.forEach {
+                state.answer.forEach {
                     CharacterElement(
                         modifier = Modifier.size(40.dp),
                         character = it.letter,
@@ -68,37 +56,27 @@ fun GameScreen(
             Spacer(modifier.height(25.dp))
 
             Column {
-                HintElement(
-                    keyCount = weakHint.cost,
-                    text = weakHint.text,
-                    show = !weakHint.isEnabled,
-                    onClick = { onActions.invoke(GameScreenActions.ShowHint(Strength.WEAK)) })
-                HintElement(
-                    keyCount = mediumHint.cost,
-                    text = mediumHint.text,
-                    show = !mediumHint.isEnabled,
-                    onClick = { onActions.invoke(GameScreenActions.ShowHint(Strength.MEDIUM)) })
-                HintElement(
-                    keyCount = strongHint.cost,
-                    text = strongHint.text,
-                    show = !strongHint.isEnabled,
-                    onClick = { onActions.invoke(GameScreenActions.ShowHint(Strength.STRONG)) })
+                state.hints.forEach { (k, v) ->
+                    HintElement(
+                        keyCount = v.cost,
+                        text = v.text,
+                        show = !v.isEnabled,
+                        onClick = { onActions(GameScreenActions.ShowHint(k)) }
+                    )
+                }
             }
 
             Spacer(modifier.height(25.dp))
 
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(2.dp)
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                KeyboardKeyRow(
-                    keys = topRowKeys,
-                    onClick = { onActions.invoke(GameScreenActions.MakeAGuess(it, KeyboardRow.TOP)) })
-                KeyboardKeyRow(
-                    keys = middleRowKeys,
-                    onClick = { onActions.invoke(GameScreenActions.MakeAGuess(it, KeyboardRow.MIDDLE)) })
-                KeyboardKeyRow(
-                    keys = bottomRowKeys,
-                    onClick = { onActions.invoke(GameScreenActions.MakeAGuess(it, KeyboardRow.BOTTOM)) })
+                state.keyboard.forEach { (k, v) ->
+                    KeyboardKeyRow(
+                        keys = v,
+                        onClick = { onActions.invoke(GameScreenActions.MakeAGuess(it, k)) })
+                }
             }
         }
     }

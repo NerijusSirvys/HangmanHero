@@ -7,7 +7,10 @@ import com.ns.hangmanhero.data.Difficulty
 import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Strength
 import com.ns.hangmanhero.screens.game.data.KeyboardRow
+import com.ns.hangmanhero.screens.game.states.GameScreenState
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class GameScreenViewmodel(
@@ -15,17 +18,24 @@ class GameScreenViewmodel(
 ) : ViewModel() {
 
     private val level: Level = service.getLevel(Difficulty.EASY)
+    private val initialState = GameScreenState(
+        keyCount = 0,
+        clue = level.clue,
+        answer = StateFactory.createAnswerState(level.answer),
+        hints = mapOf(
+            Strength.WEAK to StateFactory.createHintState(level.hints, Strength.WEAK),
+            Strength.MEDIUM to StateFactory.createHintState(level.hints, Strength.MEDIUM),
+            Strength.STRONG to StateFactory.createHintState(level.hints, Strength.STRONG),
+        ),
+        keyboard = mapOf(
+            KeyboardRow.TOP to StateFactory.createKeyboardKeyState(KeyboardRow.TOP),
+            KeyboardRow.MIDDLE to StateFactory.createKeyboardKeyState(KeyboardRow.MIDDLE),
+            KeyboardRow.BOTTOM to StateFactory.createKeyboardKeyState(KeyboardRow.BOTTOM),
+        )
+    )
 
-    val topRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.TOP))
-    val midRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.MIDDLE))
-    val bottomRowState = MutableStateFlow(StateFactory.createKeyboardKeyState(KeyboardRow.BOTTOM))
-
-    val weakHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.WEAK))
-    val mediumHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.MEDIUM))
-    val strongHintState = MutableStateFlow(StateFactory.createHintState(level.hints, Strength.STRONG))
-
-    val answerState = MutableStateFlow(StateFactory.createAnswerState(level.answer))
-    val clueState = MutableStateFlow(level.clue)
+    private val _state: MutableStateFlow<GameScreenState> = MutableStateFlow(initialState)
+    val state: StateFlow<GameScreenState> = _state.asStateFlow()
 
     fun onAction(action: GameScreenActions) {
 
@@ -36,62 +46,33 @@ class GameScreenViewmodel(
     }
 
     private fun showHint(strength: Strength) {
-        when (strength) {
-            Strength.WEAK -> weakHintState.update { it.copy(isEnabled = false) }
-            Strength.MEDIUM -> mediumHintState.update { it.copy(isEnabled = false) }
-            Strength.STRONG -> strongHintState.update { it.copy(isEnabled = false) }
+        _state.update { currentState ->
+            val updatedHints = currentState.hints.toMutableMap().apply {
+                currentState.hints[strength]?.let { currentHint ->
+                    put(strength, currentHint.copy(isEnabled = false))
+                }
+            }
+            currentState.copy(hints = updatedHints)
         }
     }
 
     private fun guessLetter(character: Char, row: KeyboardRow) {
-        when (row) {
-            KeyboardRow.TOP -> {
-                val mutableKeys = topRowState.value.toMutableList()
-                val key = mutableKeys.find { it.character == character }
-                if (key == null) return
-                val index = mutableKeys.indexOf(key)
-                mutableKeys[index] = key.copy(isEnabled = false)
+        _state.update { currentState ->
+            val updatedKeyboard = currentState.keyboard[row]?.map {
+                if (it.character == character)
+                    it.copy(isEnabled = false)
+                else it
+            } ?: emptyList()
 
-                topRowState.value = mutableKeys.toList()
+            val updatedAnswer = currentState.answer.map {
+                if (it.letter == character) it.copy(show = true) else it
             }
 
-            KeyboardRow.MIDDLE -> {
-                val mutableKeys = midRowState.value.toMutableList()
-                val key = mutableKeys.find { it.character == character }
-                if (key == null) return
-                val index = mutableKeys.indexOf(key)
-                mutableKeys[index] = key.copy(isEnabled = false)
-
-                midRowState.value = mutableKeys.toList()
-            }
-
-            KeyboardRow.BOTTOM -> {
-                val mutableKeys = bottomRowState.value.toMutableList()
-                val key = mutableKeys.find { it.character == character }
-                if (key == null) return
-                val index = mutableKeys.indexOf(key)
-                mutableKeys[index] = key.copy(isEnabled = false)
-
-                bottomRowState.value = mutableKeys.toList()
-            }
+            currentState.copy(
+                answer = updatedAnswer,
+                keyboard = currentState.keyboard.toMutableMap().apply {
+                    put(row, updatedKeyboard)
+                })
         }
-
-        val answer = answerState.value.toMutableList()
-
-        val indexes = mutableListOf<Int>()
-        answer.forEachIndexed { i, c ->
-            if (c.letter == character) {
-                indexes.add(i)
-            }
-        }
-
-        if (indexes.isEmpty()) return
-
-        indexes.forEach {
-            answer[it] = answer[it].copy(show = true)
-        }
-
-        answerState.value = answer.toList()
-
     }
 }
