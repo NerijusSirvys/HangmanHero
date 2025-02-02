@@ -11,9 +11,10 @@ import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Stage
 import com.ns.hangmanhero.data.Strength
 import com.ns.hangmanhero.stages.game_play.data.KeyboardRow
+import com.ns.hangmanhero.state.CharacterState
+import com.ns.hangmanhero.state.StateFactory
 import com.ns.hangmanhero.utils.SnackbarController
 import com.ns.hangmanhero.utils.SnackbarEvent
-import com.ns.hangmanhero.state.StateFactory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -86,6 +87,7 @@ class GameViewmodel(
 
             var correct = false
             var fountKeys = 0
+
             val updatedAnswer = currentState.answer.map {
                 if (it.letter == character) {
                     correct = true
@@ -94,19 +96,15 @@ class GameViewmodel(
                         fountKeys++
 
                     it.copy(show = true)
-
                 } else it
             }
 
             val updatedGuesses = if (correct) currentState.remainingGuesses
             else currentState.remainingGuesses - 1
 
-            val updatedStage = if (updatedGuesses == 0) Stage.GameOver
-            else currentState.stage
-
             currentState.copy(
                 keyCount = currentState.keyCount + fountKeys,
-                stage = updatedStage,
+                stage = updateStage(updatedGuesses, updatedAnswer) ?: currentState.stage,
                 remainingGuesses = updatedGuesses,
                 answer = updatedAnswer,
                 keyboard = currentState.keyboard.toMutableMap().apply {
@@ -114,5 +112,15 @@ class GameViewmodel(
                 })
 
         }
+    }
+
+    private fun updateStage(updatedGuesses: Int, answer: List<CharacterState>): Stage? {
+        if (updatedGuesses == 0) {
+            return Stage.GameOver
+        } else if (answer.filter { it.show }.size == answer.size) {
+            return Stage.NextLevel
+        }
+
+        return null
     }
 }
