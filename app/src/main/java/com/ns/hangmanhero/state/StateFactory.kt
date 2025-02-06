@@ -4,18 +4,20 @@ import com.ns.hangmanhero.data.Hint
 import com.ns.hangmanhero.data.Level
 import com.ns.hangmanhero.data.Stage
 import com.ns.hangmanhero.data.Strength
+import com.ns.hangmanhero.data.TransferableState
 import com.ns.hangmanhero.mappers.toHintElementState
 import com.ns.hangmanhero.stages.game_play.data.KeyboardRow
 
 class StateFactory {
     companion object {
-
-        fun createGameState(level: Level): GameState {
+        fun createGameState(level: Level, transfer: TransferableState): GameState {
             return GameState(
                 stage = Stage.Game,
-                keyCount = 0,
-                remainingGuesses = 6,
+                keyCount = transfer.keys,
+                remainingGuesses = transfer.remainingGuesses,
                 clue = level.clue,
+                currentLevel = level.id,
+                completeLevels = transfer.completeLevels,
                 answer = createAnswerState(level.answer),
                 hints = mapOf(
                     Strength.WEAK to createHintState(level.hints, Strength.WEAK),
@@ -30,7 +32,7 @@ class StateFactory {
             )
         }
 
-        fun createKeyboardKeyState(row: KeyboardRow): List<KeyboardKeyState> {
+        private fun createKeyboardKeyState(row: KeyboardRow): List<KeyboardKeyState> {
             return when (row) {
                 KeyboardRow.TOP -> "qwertyuiop".map { KeyboardKeyState(it, true) }
                 KeyboardRow.MIDDLE -> "asdfghjkl".map { KeyboardKeyState(it, true) }
@@ -38,11 +40,11 @@ class StateFactory {
             }
         }
 
-        fun createHintState(hints: List<Hint>, strength: Strength): HintElementState {
+        private fun createHintState(hints: List<Hint>, strength: Strength): HintElementState {
             return hints.find { it.strength == strength }!!.toHintElementState()
         }
 
-        fun createAnswerState(answer: String): List<CharacterState> {
+        private fun createAnswerState(answer: String): List<CharacterState> {
             val state = answer.map { CharacterState(it, false) }.toMutableList()
             val keyLocations = calculateKeyLocations(answer.length)
 

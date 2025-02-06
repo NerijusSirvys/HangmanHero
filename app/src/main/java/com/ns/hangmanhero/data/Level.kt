@@ -5,6 +5,7 @@ data class Level(
     val clue: String,
     val answer: String,
     val hints: List<Hint>,
-    val difficulty: Difficulty
+    val difficulty: Difficulty,
+    var stage: LevelStage
 )
 

@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ns.hangmanhero.actions.GamePlayActions
+import com.ns.hangmanhero.actions.GameActions
 import com.ns.hangmanhero.stages.game_play.components.CharacterElement
 import com.ns.hangmanhero.stages.game_play.components.HintElement
 import com.ns.hangmanhero.stages.game_play.components.KeyboardKeyRow
@@ -24,7 +24,7 @@ import com.ns.hangmanhero.state.GameState
 fun GamePlayStage(
     modifier: Modifier = Modifier,
     state: GameState,
-    onAction: (GamePlayActions) -> Unit
+    onAction: (GameActions) -> Unit
 ) {
     Box(
         contentAlignment = Alignment.Center
@@ -58,7 +58,7 @@ fun GamePlayStage(
                         keyCount = v.cost,
                         text = v.text,
                         show = !v.isEnabled,
-                        onClick = { onAction(GamePlayActions.ShowHint(k)) }
+                        onClick = { onAction(GameActions.ShowHint(k)) }
                     )
                 }
             }
@@ -72,7 +72,7 @@ fun GamePlayStage(
                 state.keyboard.forEach { (k, v) ->
                     KeyboardKeyRow(
                         keys = v,
-                        onClick = { onAction.invoke(GamePlayActions.MakeAGuess(it, k)) })
+                        onClick = { onAction.invoke(GameActions.MakeAGuess(it, k)) })
                 }
             }
         }

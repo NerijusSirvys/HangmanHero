@@ -9,6 +9,8 @@ data class GameState(
     val keyCount: Int,
     val remainingGuesses: Int,
     val clue: String,
+    val currentLevel: String?,
+    val completeLevels: List<String>,
     val answer: List<CharacterState>,
     val hints: Map<Strength, HintElementState>,
     val keyboard: Map<KeyboardRow, List<KeyboardKeyState>>

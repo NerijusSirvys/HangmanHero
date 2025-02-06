@@ -11,11 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.ns.hangmanhero.actions.GameOverActions
+import com.ns.hangmanhero.actions.GameActions
 
 @Composable
 fun GameOverScreen(
-    onAction: (GameOverActions) -> Unit
+    onAction: (GameActions) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -30,14 +30,14 @@ fun GameOverScreen(
             horizontalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             OutlinedButton(
-                onClick = { onAction(GameOverActions.Restart) },
+                onClick = { onAction(GameActions.Restart) },
                 modifier = Modifier.weight(1f)
             ) {
                 Text(text = "Retry")
             }
 
             OutlinedButton(
-                onClick = { onAction(GameOverActions.Exit) },
+                onClick = { onAction(GameActions.Exit) },
                 modifier = Modifier.weight(1f)
             ) {
                 Text(text = "Exit")

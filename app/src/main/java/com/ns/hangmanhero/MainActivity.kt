@@ -25,9 +25,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ns.hangmanhero.data.Stage
+import com.ns.hangmanhero.stages.game_over.GameOverScreen
 import com.ns.hangmanhero.stages.game_play.GamePlayStage
 import com.ns.hangmanhero.stages.game_play.components.InfoTab
-import com.ns.hangmanhero.stages.game_over.GameOverScreen
 import com.ns.hangmanhero.stages.next_level.NextLevelScreen
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 import com.ns.hangmanhero.utils.FrameHelpers
@@ -105,9 +105,9 @@ class MainActivity : ComponentActivity() {
                                 targetState = state.stage,
                             ) {
                                 when (it) {
-                                    Stage.Game -> GamePlayStage(state = state, onAction = vm::onGameScreenAction)
-                                    Stage.GameOver -> GameOverScreen(onAction = vm::onGameOverAction)
-                                    Stage.NextLevel -> NextLevelScreen()
+                                    Stage.Game -> GamePlayStage(state = state, onAction = vm::onGameAction)
+                                    Stage.GameOver -> GameOverScreen(onAction = vm::onGameAction)
+                                    Stage.NextLevel -> NextLevelScreen(onAction = vm::onGameAction)
                                 }
                             }
                         }
