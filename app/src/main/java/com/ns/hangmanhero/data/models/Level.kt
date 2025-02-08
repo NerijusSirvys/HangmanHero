@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.data
+package com.ns.hangmanhero.data.models
 
 data class Level(
     val id: String,
@@ -6,6 +6,6 @@ data class Level(
     val answer: String,
     val hints: List<Hint>,
     val difficulty: Difficulty,
-    var stage: LevelStage
+    var isCompleted: Boolean
 )
 

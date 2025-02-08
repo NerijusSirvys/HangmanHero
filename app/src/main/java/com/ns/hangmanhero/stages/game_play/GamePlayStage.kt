@@ -1,11 +1,8 @@
 package com.ns.hangmanhero.stages.game_play
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,56 +23,47 @@ fun GamePlayStage(
     state: GameState,
     onAction: (GameActions) -> Unit
 ) {
-    Box(
-        contentAlignment = Alignment.Center
+    Column(
+        verticalArrangement = Arrangement.spacedBy(25.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = state.clue,
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
+        )
 
-            Text(
-                text = state.clue,
-                textAlign = TextAlign.Center,
-                fontSize = 20.sp
-            )
-
-            Spacer(modifier.height(25.dp))
-
-            Row {
-                state.answer.forEach {
-                    CharacterElement(
-                        modifier = Modifier.size(40.dp),
-                        character = it.letter,
-                        show = it.show,
-                        isKeyholder = it.keyHolder,
-                    )
-                }
+        Row {
+            state.answer.forEach {
+                CharacterElement(
+                    modifier = Modifier.size(40.dp),
+                    character = it.letter,
+                    show = it.show,
+                    isKeyholder = it.keyHolder,
+                )
             }
+        }
 
-            Spacer(modifier.height(25.dp))
-
-            Column {
-                state.hints.forEach { (k, v) ->
-                    HintElement(
-                        keyCount = v.cost,
-                        text = v.text,
-                        show = !v.isEnabled,
-                        onClick = { onAction(GameActions.ShowHint(k)) }
-                    )
-                }
+        Column {
+            state.hints.forEach { (k, v) ->
+                HintElement(
+                    keyCount = v.cost,
+                    text = v.text,
+                    show = !v.isEnabled,
+                    onClick = { onAction(GameActions.ShowHint(k)) }
+                )
             }
+        }
 
-            Spacer(modifier.height(25.dp))
-
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(2.dp)
-            ) {
-                state.keyboard.forEach { (k, v) ->
-                    KeyboardKeyRow(
-                        keys = v,
-                        onClick = { onAction.invoke(GameActions.MakeAGuess(it, k)) })
-                }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            state.keyboard.forEach { (k, v) ->
+                KeyboardKeyRow(
+                    keys = v,
+                    onClick = { onAction.invoke(GameActions.MakeAGuess(it, k)) })
             }
         }
     }
 }
-

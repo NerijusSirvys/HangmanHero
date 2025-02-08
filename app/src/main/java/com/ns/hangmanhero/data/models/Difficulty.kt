@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.data
+package com.ns.hangmanhero.data.models
 
 enum class Difficulty {
     EASY,

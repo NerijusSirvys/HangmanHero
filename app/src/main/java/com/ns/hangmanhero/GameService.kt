@@ -1,176 +1,51 @@
 package com.ns.hangmanhero
 
-import com.ns.hangmanhero.data.Difficulty
-import com.ns.hangmanhero.data.Hint
-import com.ns.hangmanhero.data.Level
-import com.ns.hangmanhero.data.LevelStage
-import com.ns.hangmanhero.data.Strength
+import com.ns.hangmanhero.data.GameRepository
+import com.ns.hangmanhero.data.models.Difficulty
+import com.ns.hangmanhero.data.models.Level
+import com.ns.hangmanhero.data.models.Player
 import com.ns.hangmanhero.state.GameState
-import java.util.UUID
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-class GameService {
+class GameService(
+    private val repository: GameRepository
+) {
 
-    private var _levels = mutableListOf(
-        Level(
-            id = UUID.randomUUID().toString(),
-            answer = "answer",
-            clue = "This is my random clue LV1 easy",
-            difficulty = Difficulty.EASY,
-            stage = LevelStage.TO_BE_DONE,
-            hints = listOf(
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint one 1",
-                    strength = Strength.WEAK
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint two 1",
-                    strength = Strength.MEDIUM
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint three 1",
-                    strength = Strength.STRONG
-                )
-            )
-        ),
-        Level(
-            id = UUID.randomUUID().toString(),
-            answer = "answer",
-            clue = "This is my random clue LV2 easy",
-            difficulty = Difficulty.EASY,
-            stage = LevelStage.TO_BE_DONE,
-            hints = listOf(
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint one 2",
-                    strength = Strength.WEAK
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint two 2",
-                    strength = Strength.MEDIUM
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint three 2",
-                    strength = Strength.STRONG
-                )
-            )
-        ),
-        Level(
-            id = UUID.randomUUID().toString(),
-            answer = "answer",
-            clue = "This is my random clue LV3 medium",
-            difficulty = Difficulty.MEDIUM,
-            stage = LevelStage.TO_BE_DONE,
-            hints = listOf(
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint one 3",
-                    strength = Strength.WEAK
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint two 3",
-                    strength = Strength.MEDIUM
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint three 3",
-                    strength = Strength.STRONG
-                )
-            )
-        ),
-        Level(
-            id = UUID.randomUUID().toString(),
-            answer = "answer",
-            clue = "This is my random clue LV4 medium",
-            difficulty = Difficulty.MEDIUM,
-            stage = LevelStage.TO_BE_DONE,
-            hints = listOf(
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint one 4",
-                    strength = Strength.WEAK
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint two 4",
-                    strength = Strength.MEDIUM
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint three 4",
-                    strength = Strength.STRONG
-                )
-            )
-        ),
-        Level(
-            id = UUID.randomUUID().toString(),
-            answer = "answer",
-            clue = "This is my random clue LV5 hard",
-            difficulty = Difficulty.HARD,
-            stage = LevelStage.TO_BE_DONE,
-            hints = listOf(
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint one 5",
-                    strength = Strength.WEAK
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint two 5",
-                    strength = Strength.MEDIUM
-                ),
-                Hint(
-                    id = UUID.randomUUID().toString(),
-                    text = "Supper hint three 5",
-                    strength = Strength.STRONG
-                )
-            )
-        )
-    )
-
-    fun saveState(state: GameState) {
-        // TODO: SAVE STATE TO DISK (JSON?)
+    suspend fun saveState(state: GameState, playerId: String) {
+        repository.updatePlayerState(state.keyCount.toLong(), state.completeLevels.toLong(), playerId)
     }
 
-    fun getLevel(difficulty: Difficulty): Level {
-        return _levels[0]
+    suspend fun completeLevel(levelId: String) {
+        repository.updateLevelStage(true, levelId)
     }
 
-    fun getNewLevel(difficulty: Difficulty, persistDifficulty: Boolean): Level? {
-        _levels = _levels.map {
-            if (it.stage == LevelStage.STARTED)
-                it.stage = LevelStage.TO_BE_DONE
-            it
-        }.toMutableList()
+    fun getRandomLevel(difficulty: Difficulty): Flow<Level?> {
+        return repository.getLevels(false).map { levels ->
+            selectRandom(levels, difficulty)
+        }
+    }
 
+    fun loadPlayerData(playerId: String): Flow<Player> {
+        return repository.getPlayer(playerId)
+    }
+
+    private fun selectRandom(levels: List<Level>, difficulty: Difficulty): Level? {
         var newLevel: Level? = null
 
-        if (persistDifficulty) {
-            newLevel = _levels
-                .filter { it.difficulty == difficulty && it.stage != LevelStage.COMPLETED }
-                .random()
+        val potentialLevels = levels.filter { it.difficulty == difficulty }
+        if (potentialLevels.isNotEmpty()) {
+            newLevel = potentialLevels.random()
         } else {
-            val potentialLevels = _levels.filter { it.difficulty == difficulty && it.stage != LevelStage.COMPLETED }
-            if (potentialLevels.isNotEmpty()) {
-                newLevel = potentialLevels.random()
-            } else {
-                if (difficulty != Difficulty.VERY_HARD) {
-                    val nextDifficulty = Difficulty.entries[(difficulty.ordinal + 1)]
-                    val potentialLevels = _levels.filter { it.difficulty == nextDifficulty && it.stage != LevelStage.COMPLETED }
-                    if (potentialLevels.isNotEmpty()) {
-                        newLevel = potentialLevels.random()
-                    }
-                }
+            if (difficulty != Difficulty.VERY_HARD) {
+                val nextDifficulty = Difficulty.entries[(difficulty.ordinal + 1)]
+                return selectRandom(levels, nextDifficulty)
             }
         }
-
-        newLevel?.let { it.stage = LevelStage.STARTED }
-
         return newLevel
+    }
+
+    suspend fun resetData(playerId: String) {
+        repository.resetData(playerId)
     }
 }

@@ -1,35 +1,43 @@
 package com.ns.hangmanhero.state
 
-import com.ns.hangmanhero.data.Hint
-import com.ns.hangmanhero.data.Level
-import com.ns.hangmanhero.data.Stage
-import com.ns.hangmanhero.data.Strength
-import com.ns.hangmanhero.data.TransferableState
+import com.ns.hangmanhero.data.models.Hint
+import com.ns.hangmanhero.data.models.Level
+import com.ns.hangmanhero.data.models.Strength
 import com.ns.hangmanhero.mappers.toHintElementState
 import com.ns.hangmanhero.stages.game_play.data.KeyboardRow
+import com.ns.hangmanhero.viewModel.models.Stage
 
 class StateFactory {
     companion object {
-        fun createGameState(level: Level, transfer: TransferableState): GameState {
-            return GameState(
-                stage = Stage.Game,
+        fun createGameState(level: Level?, transfer: TransferableState): GameState {
+            val state = GameState(
                 keyCount = transfer.keys,
                 remainingGuesses = transfer.remainingGuesses,
-                clue = level.clue,
-                currentLevel = level.id,
                 completeLevels = transfer.completeLevels,
-                answer = createAnswerState(level.answer),
-                hints = mapOf(
-                    Strength.WEAK to createHintState(level.hints, Strength.WEAK),
-                    Strength.MEDIUM to createHintState(level.hints, Strength.MEDIUM),
-                    Strength.STRONG to createHintState(level.hints, Strength.STRONG),
-                ),
+                isLoading = false,
                 keyboard = mapOf(
                     KeyboardRow.TOP to createKeyboardKeyState(KeyboardRow.TOP),
                     KeyboardRow.MIDDLE to createKeyboardKeyState(KeyboardRow.MIDDLE),
                     KeyboardRow.BOTTOM to createKeyboardKeyState(KeyboardRow.BOTTOM),
                 )
             )
+
+            return if (level == null) {
+                state.copy(
+                    stage = Stage.GameCompleted
+                )
+            } else {
+                state.copy(
+                    stage = Stage.Game,
+                    clue = level.clue,
+                    answer = createAnswerState(level.answer),
+                    hints = mapOf(
+                        Strength.WEAK to createHintState(level.hints, Strength.WEAK),
+                        Strength.MEDIUM to createHintState(level.hints, Strength.MEDIUM),
+                        Strength.STRONG to createHintState(level.hints, Strength.STRONG),
+                    )
+                )
+            }
         }
 
         private fun createKeyboardKeyState(row: KeyboardRow): List<KeyboardKeyState> {

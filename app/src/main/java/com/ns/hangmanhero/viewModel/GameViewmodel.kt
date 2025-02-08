@@ -1,35 +1,65 @@
-package com.ns.hangmanhero
+package com.ns.hangmanhero.viewModel
 
 import android.app.Activity
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ns.hangmanhero.GameService
 import com.ns.hangmanhero.actions.GameActions
-import com.ns.hangmanhero.data.Difficulty
-import com.ns.hangmanhero.data.Level
-import com.ns.hangmanhero.data.Stage
-import com.ns.hangmanhero.data.Strength
-import com.ns.hangmanhero.data.TransferableState
+import com.ns.hangmanhero.data.models.Difficulty
+import com.ns.hangmanhero.data.models.Strength
 import com.ns.hangmanhero.stages.game_play.data.KeyboardRow
 import com.ns.hangmanhero.state.CharacterState
+import com.ns.hangmanhero.state.GameState
 import com.ns.hangmanhero.state.StateFactory
+import com.ns.hangmanhero.state.TransferableState
 import com.ns.hangmanhero.utils.SnackbarController
 import com.ns.hangmanhero.utils.SnackbarEvent
+import com.ns.hangmanhero.viewModel.models.NewLoadMap
+import com.ns.hangmanhero.viewModel.models.Stage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.zip
 import kotlinx.coroutines.launch
 
 class GameViewmodel(
     private val service: GameService,
     context: Context
 ) : ViewModel() {
+    private val playerId = "8784f420-f95f-467c-aac4-1147b2e26e2d"
 
     private val context: Context by lazy { context }
-    private var level: Level = service.getLevel(Difficulty.EASY)
+    private lateinit var difficulty: Difficulty
+    private lateinit var levelId: String
 
-    private val _state = MutableStateFlow(StateFactory.createGameState(level, TransferableState()))
+    private val _state: MutableStateFlow<GameState> = MutableStateFlow(GameState())
     val state = _state.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            service.loadPlayerData(playerId)
+                .zip(service.getRandomLevel(Difficulty.EASY)) { player, level ->
+                    NewLoadMap(player, level)
+                }.collectLatest { loadMap ->
+                    val transferObject = TransferableState(
+                        keys = loadMap.playerData.keys,
+                        completeLevels = loadMap.playerData.completeLevels
+                    )
+
+                    if (loadMap.levelData != null) {
+                        _state.value = StateFactory.createGameState(loadMap.levelData, transferObject)
+
+                        difficulty = loadMap.levelData.difficulty
+                        levelId = loadMap.levelData.id
+                    } else {
+                        _state.update { it.copy(stage = Stage.GameCompleted, isLoading = false) }
+                        _state.value = StateFactory.createGameState(null, transferObject)
+                    }
+                }
+        }
+    }
 
     fun onGameAction(action: GameActions) {
         when (action) {
@@ -38,44 +68,44 @@ class GameViewmodel(
             GameActions.Exit -> exitApplication()
             GameActions.NextLevel -> goToNextLevel()
             GameActions.Restart -> restart()
-            GameActions.SaveState -> saveState()
+            GameActions.StartAgain -> resetGame()
         }
     }
 
-    private fun saveState() {
-        _state.update { state ->
-            val levels = state.completeLevels.toMutableList()
-            state.currentLevel?.let { levels.add(it) }
-            state.copy(completeLevels = levels, currentLevel = null)
+    private fun resetGame() {
+        viewModelScope.launch {
+            service.resetData(playerId)
         }
-
-        service.saveState(_state.value)
-
-        println("---> Saving State <---")
     }
 
     private fun goToNextLevel() {
-        val newLevel = service.getNewLevel(level.difficulty, false)
-        if (newLevel != null) {
-            level = newLevel
+        _state.update {
+            it.copy(
+                isLoading = true,
+                completeLevels = _state.value.completeLevels + 1
+            )
         }
-
-        val transferObject = TransferableState(
-            keys = _state.value.keyCount,
-            completeLevels = _state.value.completeLevels
-        )
-
-        _state.update { StateFactory.createGameState(level, transferObject) }
+        viewModelScope.launch {
+            service.completeLevel(levelId)
+            service.saveState(_state.value, playerId)
+        }
     }
 
     private fun restart() {
-        val newLevel = service.getNewLevel(level.difficulty, true)
-        if (newLevel != null) {
-            level = newLevel
-        }
-
         val keyCount = if (_state.value.keyCount <= 3) 0 else _state.value.keyCount - 3
-        _state.update { StateFactory.createGameState(level, TransferableState(keys = keyCount)) }
+        _state.update { it.copy(isLoading = true) }
+
+        viewModelScope.launch {
+            service.getRandomLevel(difficulty).collectLatest { level ->
+                if (level != null) {
+                    _state.update {
+                        difficulty = level.difficulty
+                        levelId = level.id
+                        StateFactory.createGameState(level, TransferableState(keys = keyCount))
+                    }
+                }
+            }
+        }
     }
 
     private fun exitApplication() {
@@ -118,7 +148,7 @@ class GameViewmodel(
             var fountKeys = 0
 
             val updatedAnswer = currentState.answer.map {
-                if (it.letter == character) {
+                if (it.letter.equals(character, true)) {
                     correct = true
 
                     if (it.keyHolder)
@@ -139,7 +169,6 @@ class GameViewmodel(
                 keyboard = currentState.keyboard.toMutableMap().apply {
                     put(row, updatedKeyboard)
                 })
-
         }
     }
 

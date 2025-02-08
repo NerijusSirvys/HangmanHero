@@ -1,4 +1,4 @@
-package com.ns.hangmanhero.data
+package com.ns.hangmanhero.data.models
 
 data class Hint(
     val id: String,

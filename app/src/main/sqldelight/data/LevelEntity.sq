@@ -1,0 +1,53 @@
+import com.ns.hangmanhero.data.models.Difficulty;
+import kotlin.Boolean;
+
+CREATE TABLE LevelEntity (
+    id TEXT PRIMARY KEY NOT NULL ,
+    clue TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    difficulty TEXT AS Difficulty NOT NULL,
+    isCompleted INTEGER AS Boolean NOT NULL
+);
+
+INSERT INTO LevelEntity
+VALUES
+('2a8e3191-8798-4e46-abd7-e46f0f3cb041', 'This is my random clue LV1 easy', 'Answer', 'EASY', '0'),
+('adcd26f6-ca17-40eb-aede-cb4e8dfe0b6a', 'This is my random clue LV2 easy', 'Answer', 'EASY', '0'),
+('1593906a-1438-4775-b116-814726385951', 'This is my random clue LV3 medium', 'Answer', 'MEDIUM', '0'),
+('adfb7be4-4767-49f2-aa51-ed4598fb1d96', 'This is my random clue LV4 medium', 'Answer', 'MEDIUM', '0'),
+('09a68637-1520-4751-acf5-4027bf3146e0', 'This is my random clue LV5 hard', 'Answer', 'HARD', '0');
+
+getLevels:
+SELECT
+    LevelEntity.difficulty,
+    LevelEntity.isCompleted,
+    LevelEntity.answer,
+    LevelEntity.clue,
+    HintEntity.id AS hintId,
+    HintEntity.*
+FROM LevelEntity
+JOIN HintEntity ON HintEntity.levelId = LevelEntity.id
+WHERE isCompleted = :isCompleted
+GROUP BY HintEntity.id;
+
+getAllLevels:
+SELECT
+    LevelEntity.difficulty,
+    LevelEntity.isCompleted,
+    LevelEntity.answer,
+    LevelEntity.clue,
+    HintEntity.id AS hintId,
+    HintEntity.*
+FROM LevelEntity
+JOIN HintEntity ON HintEntity.levelId = LevelEntity.id
+GROUP BY HintEntity.id;
+
+updateAllLevelStage:
+UPDATE LevelEntity
+SET isCompleted = :isCompleted;
+
+updateLevelStage:
+UPDATE LevelEntity
+SET isCompleted = :isCompleted
+WHERE  LevelEntity.id = :id;
+

@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    kotlin("plugin.serialization") version "2.1.10"
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sqlDelight)
 }
 
 android {
@@ -39,6 +40,11 @@ android {
 
 dependencies {
 
+    // SQLDelight
+    implementation(libs.sqlDelight.android.driver)
+    implementation(libs.sqlDelight.coroutines.extension)
+    implementation(libs.sqlDelight.adapters)
+
     implementation(libs.koin.android)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
@@ -60,4 +66,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+sqldelight {
+    databases {
+        create("HangmanHeroDbContext") {
+            packageName.set("com.ns.hangmanhero")
+        }
+    }
 }
