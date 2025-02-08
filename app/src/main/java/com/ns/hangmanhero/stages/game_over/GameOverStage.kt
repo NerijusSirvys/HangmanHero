@@ -3,9 +3,11 @@ package com.ns.hangmanhero.stages.game_over
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -15,10 +17,14 @@ import com.ns.hangmanhero.actions.GameActions
 fun GameOverScreen(
     onAction: (GameActions) -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(25.dp)) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(25.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
             text = "Game Over",
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.headlineLarge
         )
 
         Row(
