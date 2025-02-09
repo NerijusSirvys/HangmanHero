@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,10 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.ns.hangmanhero.components.InfoTab
 import com.ns.hangmanhero.stages.game_complete.GameCompleteStage
 import com.ns.hangmanhero.stages.game_over.GameOverScreen
 import com.ns.hangmanhero.stages.game_play.GamePlayStage
-import com.ns.hangmanhero.stages.game_play.components.InfoTab
 import com.ns.hangmanhero.stages.next_level.NextLevelScreen
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 import com.ns.hangmanhero.utils.FrameHelpers
@@ -104,14 +105,23 @@ class MainActivity : ComponentActivity() {
                                             .padding(25.dp)
                                             .align(Alignment.TopStart)
                                     ) {
-                                        InfoTab(
-                                            iconId = R.drawable.icon_key,
-                                            value = state.keyCount
-                                        )
+                                        Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+
+                                            InfoTab(
+                                                iconId = R.drawable.icon_key,
+                                                value = state.keyCount
+                                            )
+
+                                            InfoTab(
+                                                iconId = R.drawable.icon_check,
+                                                value = state.completeLevels
+                                            )
+                                        }
                                     }
                                     Image(
                                         painter = painterResource(FrameHelpers.updateFrame(state.remainingGuesses)),
                                         contentDescription = null,
+                                        alpha = 0.6f
                                     )
                                 }
 

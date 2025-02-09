@@ -6,7 +6,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -67,8 +66,8 @@ fun CharacterElement(
         modifier = modifier
             .padding(2.dp)
             .border(
-                width = 1.dp,
-                shape = RoundedCornerShape(8.dp),
+                width = 0.5.dp,
+                shape = MaterialTheme.shapes.small,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
             ),
     ) {
@@ -89,7 +88,8 @@ fun CharacterElement(
                 Text(
                     text = character.toString(),
                     fontSize = 26.sp,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                 )
             }
         } else {

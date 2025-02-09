@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ns.hangmanhero.R
+import com.ns.hangmanhero.components.Container
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 
 @Composable
@@ -26,7 +26,7 @@ fun HintElement(
     text: String,
     show: Boolean
 ) {
-    OutlinedCard(
+    Container(
         enabled = !show,
         onClick = onClick,
         modifier = modifier.fillMaxWidth()
@@ -52,13 +52,13 @@ fun HintElement(
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                             )
-
                         }
                     }
                     Text(
                         modifier = modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center,
-                        text = "Show Hint"
+                        text = "Show Hint",
+                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                     )
                 }
             }

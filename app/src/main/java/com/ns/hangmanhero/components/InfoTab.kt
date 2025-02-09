@@ -1,11 +1,9 @@
-package com.ns.hangmanhero.stages.game_play.components
+package com.ns.hangmanhero.components
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -25,10 +23,7 @@ fun InfoTab(
     @DrawableRes iconId: Int,
     value: Int,
 ) {
-    Surface(
-        border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)),
-        shape = RoundedCornerShape(8.dp),
-    ) {
+    Container {
         Row(
             modifier = Modifier
                 .padding(horizontal = 5.dp, vertical = 3.dp)
@@ -39,10 +34,12 @@ fun InfoTab(
             Icon(
                 painter = painterResource(iconId),
                 contentDescription = null,
+                tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
             )
             Text(
                 text = value.toString(),
-                fontSize = 26.sp
+                fontSize = 26.sp,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
             )
         }
     }
