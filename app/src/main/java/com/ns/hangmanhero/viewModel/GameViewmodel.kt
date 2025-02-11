@@ -5,8 +5,10 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ns.hangmanhero.GameService
+import com.ns.hangmanhero.R
 import com.ns.hangmanhero.actions.GameActions
 import com.ns.hangmanhero.data.models.Difficulty
+import com.ns.hangmanhero.data.models.Level
 import com.ns.hangmanhero.data.models.Strength
 import com.ns.hangmanhero.stages.game_play.data.KeyboardRow
 import com.ns.hangmanhero.state.CharacterState
@@ -23,6 +25,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.zip
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
 
 class GameViewmodel(
     private val service: GameService,
@@ -39,6 +42,7 @@ class GameViewmodel(
 
     init {
         viewModelScope.launch {
+            populateData()
             service.loadPlayerData(playerId)
                 .zip(service.getRandomLevel(Difficulty.EASY)) { player, level ->
                     NewLoadMap(player, level)
@@ -180,5 +184,23 @@ class GameViewmodel(
         }
 
         return null
+    }
+
+    private suspend fun populateData() {
+        val sharedPref = context.getSharedPreferences("hangman", Context.MODE_PRIVATE)
+
+        val populated = sharedPref.getBoolean("db_populated", false)
+        if (!populated) {
+            val res = context.resources.openRawResource(R.raw.easy)
+            val json = res.readBytes().decodeToString()
+
+            val levels = Json.decodeFromString<List<Level>>(json)
+
+            service.populateData(levels)
+
+            val editor = sharedPref.edit()
+            editor.putBoolean("db_populated", true)
+            editor.apply()
+        }
     }
 }

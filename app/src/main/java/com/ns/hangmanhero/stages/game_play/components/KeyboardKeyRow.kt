@@ -26,8 +26,7 @@ fun KeyboardKeyRow(
 
         keys.forEach {
             KeyboardKey(
-                modifier = Modifier
-                    .weight(1f),
+                modifier = Modifier.weight(1f),
                 onClick = { key -> onClick.invoke(key) },
                 enabled = it.isEnabled,
                 character = it.character

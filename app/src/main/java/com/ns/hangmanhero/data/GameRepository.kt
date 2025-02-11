@@ -6,11 +6,14 @@ import app.cash.sqldelight.coroutines.mapToOne
 import com.ns.hangmanhero.HangmanHeroDbContext
 import com.ns.hangmanhero.data.models.Level
 import com.ns.hangmanhero.data.models.Player
+import data.HintEntity
+import data.LevelEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.withContext
+import java.util.UUID
 
 class GameRepository(
     private val context: HangmanHeroDbContext
@@ -48,6 +51,36 @@ class GameRepository(
             context.transaction {
                 context.levelEntityQueries.updateAllLevelStage(false)
                 context.playerEntityQueries.updatePlayer(0, 0, playerId)
+            }
+        }
+    }
+
+    suspend fun populateGameData(levels: List<Level>) {
+        withContext(Dispatchers.IO) {
+            context.transaction {
+                levels.forEach { level ->
+                    val newLevelId = UUID.randomUUID().toString()
+                    context.levelEntityQueries.insertLevelEntity(
+                        LevelEntity(
+                            id = newLevelId,
+                            clue = level.clue,
+                            answer = level.answer,
+                            difficulty = level.difficulty,
+                            isCompleted = false
+                        )
+                    )
+
+                    level.hints.forEach { hint ->
+                        context.hintEntityQueries.insertHintEntity(
+                            HintEntity(
+                                id = UUID.randomUUID().toString(),
+                                text = hint.text,
+                                strength = hint.strength,
+                                levelId = newLevelId
+                            )
+                        )
+                    }
+                }
             }
         }
     }

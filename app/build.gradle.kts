@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.sqlDelight.coroutines.extension)
     implementation(libs.sqlDelight.adapters)
 
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.koin.android)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)

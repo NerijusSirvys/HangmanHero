@@ -48,4 +48,8 @@ class GameService(
     suspend fun resetData(playerId: String) {
         repository.resetData(playerId)
     }
+
+    suspend fun populateData(levels: List<Level>) {
+        repository.populateGameData(levels)
+    }
 }

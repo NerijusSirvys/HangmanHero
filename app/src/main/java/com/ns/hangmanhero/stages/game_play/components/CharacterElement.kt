@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -22,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ns.hangmanhero.R
+import com.ns.hangmanhero.components.ComponentText
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -85,11 +85,10 @@ fun CharacterElement(
                         tint = MaterialTheme.colorScheme.onBackground.copy(0.6f)
                     )
                 }
-                Text(
+                ComponentText(
                     text = character.toString(),
                     fontSize = 26.sp,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                 )
             }
         } else {

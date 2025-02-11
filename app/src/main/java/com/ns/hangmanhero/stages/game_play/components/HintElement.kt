@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ns.hangmanhero.R
-import com.ns.hangmanhero.components.Container
+import com.ns.hangmanhero.components.ComponentText
 import com.ns.hangmanhero.ui.theme.HangmanHeroTheme
 
 @Composable
@@ -26,10 +26,11 @@ fun HintElement(
     text: String,
     show: Boolean
 ) {
-    Container(
+    OutlinedCard(
         enabled = !show,
         onClick = onClick,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.small
     ) {
         Row(
             modifier = Modifier.padding(
@@ -39,10 +40,10 @@ fun HintElement(
         ) {
             Box {
                 if (show) {
-                    Text(
+                    ComponentText(
                         modifier = modifier.fillMaxWidth(),
                         textAlign = TextAlign.Start,
-                        text = text
+                        text = text,
                     )
                 } else {
                     Row {
@@ -54,11 +55,10 @@ fun HintElement(
                             )
                         }
                     }
-                    Text(
+                    ComponentText(
                         modifier = modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center,
                         text = "Show Hint",
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
                     )
                 }
             }

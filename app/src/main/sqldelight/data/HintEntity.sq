@@ -9,26 +9,8 @@ CREATE TABLE HintEntity (
     levelId TEXT NOT NULL
 );
 
-INSERT INTO HintEntity
-VALUES
-('03339b8f-ea69-4941-9eb8-b79b1c59806e', 'Supper hint one 1', 'WEAK', '2a8e3191-8798-4e46-abd7-e46f0f3cb041'),
-('dce65695-4de2-40ea-b8a5-927baecabbd1', 'Supper hint two 1', 'MEDIUM', '2a8e3191-8798-4e46-abd7-e46f0f3cb041'),
-('cea55254-b886-4a95-88ba-a1710e133ca8', 'Supper hint three 1', 'STRONG', '2a8e3191-8798-4e46-abd7-e46f0f3cb041'),
-
-('0be278e0-c0db-449a-8e3e-3575f56f67ac', 'Supper hint one 2', 'WEAK', 'adcd26f6-ca17-40eb-aede-cb4e8dfe0b6a'),
-('5ffbe125-dc3d-47d5-a521-7642397fd16c', 'Supper hint two 2', 'MEDIUM', 'adcd26f6-ca17-40eb-aede-cb4e8dfe0b6a'),
-('6ba92ec7-63a7-4002-88d8-3671d67c4510', 'Supper hint three 2', 'STRONG', 'adcd26f6-ca17-40eb-aede-cb4e8dfe0b6a'),
-
-('0947b796-de79-475a-be10-f48ead875641', 'Supper hint one 3', 'WEAK', '1593906a-1438-4775-b116-814726385951'),
-('2e746116-04ba-4588-a165-ca768a6d1214', 'Supper hint two 3', 'MEDIUM', '1593906a-1438-4775-b116-814726385951'),
-('b9de6a26-4527-433f-90f8-5a0be4ba9c5f', 'Supper hint three 3', 'STRONG', '1593906a-1438-4775-b116-814726385951'),
-
-('8d4855ba-3064-48a7-b3d7-60bc6762d1dc', 'Supper hint one 4', 'WEAK', 'adfb7be4-4767-49f2-aa51-ed4598fb1d96'),
-('9f6a1b73-2ccf-481c-b40e-5fce696b231d', 'Supper hint two 4', 'MEDIUM', 'adfb7be4-4767-49f2-aa51-ed4598fb1d96'),
-('7c745f80-2380-401b-b624-810c6df0450b', 'Supper hint three 4', 'STRONG', 'adfb7be4-4767-49f2-aa51-ed4598fb1d96'),
-
-('f0e8aef1-1f71-48b4-bcfc-20f82b04a79e', 'Supper hint one 5', 'WEAK', '09a68637-1520-4751-acf5-4027bf3146e0'),
-('a57a868f-5883-4109-8a60-8c592ebc4d7d', 'Supper hint two 5', 'MEDIUM', '09a68637-1520-4751-acf5-4027bf3146e0'),
-('cd04439a-0064-4608-ad01-e63c7699b37d', 'Supper hint three 5', 'STRONG', '09a68637-1520-4751-acf5-4027bf3146e0');
-
+insertHintEntity:
+INSERT OR IGNORE
+INTO HintEntity
+VALUES ?;
 

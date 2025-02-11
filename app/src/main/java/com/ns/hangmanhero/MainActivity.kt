@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ns.hangmanhero.components.InfoTab
 import com.ns.hangmanhero.stages.game_complete.GameCompleteStage
@@ -47,6 +48,9 @@ import org.koin.core.context.startKoin
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val splash = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         startKoin {
             androidLogger()
@@ -73,6 +77,11 @@ class MainActivity : ComponentActivity() {
 
             val vm = koinViewModel<GameViewmodel>()
             val state by vm.state.collectAsStateWithLifecycle()
+
+            splash.setKeepOnScreenCondition {
+                state.isLoading
+            }
+
             HangmanHeroTheme {
                 KoinContext {
                     Scaffold(

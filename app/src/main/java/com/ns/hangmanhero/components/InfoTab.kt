@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,7 +23,9 @@ fun InfoTab(
     @DrawableRes iconId: Int,
     value: Int,
 ) {
-    Container {
+    OutlinedCard(
+        shape = MaterialTheme.shapes.small
+    ) {
         Row(
             modifier = Modifier
                 .padding(horizontal = 5.dp, vertical = 3.dp)
@@ -36,10 +38,9 @@ fun InfoTab(
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
             )
-            Text(
+            ComponentText(
                 text = value.toString(),
                 fontSize = 26.sp,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)
             )
         }
     }
