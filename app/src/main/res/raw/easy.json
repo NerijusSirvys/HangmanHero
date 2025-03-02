@@ -1,0 +1,477 @@
+[
+  {
+    "clue": "I'm red or green and crisp to bite, a daily snack to keep you light. What am I?",
+    "answer": "Apple",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I can be sour, or I can be sweet",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be added in to the pies",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I'm often said to keep the doctor away",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm wrapped up tight and oh so sweet, a treat that's fun to unwrap and eat. What am I?",
+    "answer": "Candy",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "But be careful, you don't want too much of me",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm a little snack enjoyed by kids",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Too much of me might give you a toothache",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I give you shelter night and day, where memories and dreams come out to play. What am I?",
+    "answer": "House",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "Sometimes I'm made out of wood, and sometimes not",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be found in a tree",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I have walls and a roof, a door to let friends in",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I wear stripes like a work of art, I roam the wild with a fierce heart. What am I?",
+    "answer": "Tiger",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I have beautiful orange fur with black stripes",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I might be seen on a nature documentary",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I am known as one of the largest wild cats",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I wear stripes like a suit so fine, roaming the wild with a pattern divine. What am I?",
+    "answer": "Zebra",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I wear a pattern that is a nature’s art",
+        "strength": "WEAK"
+      },
+      {
+        "text": "My favourite colors are white and black",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I'm often mistaken for a striped horse",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a circle that disappears piece by piece, shared among friends to bring a little peace. What am I?",
+    "answer": "Pizza",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I can be simple or have many extras",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm often round and cheesy",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I start as dough and usually come with a tasty toppings",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I drift in silence through the night, a fleeting shadow just out of sight. What am I?",
+    "answer": "Ghost",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I'm often talked about around campfires",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I might be seen floating in an old, creaky house",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Often in white, and drift through walls and corridors.",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm vast and blue, with secrets hidden from view. What am I?",
+    "answer": "Ocean",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I can be gentle enough for a swim or wild enough for a storm",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I am a vast, blue expanse that meets the sky at the horizon",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Home to waves and tides, I am a giant of water",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "Where waves meet the shore and the sun lights the land, I offer soft sands at your command. What am I?",
+    "answer": "Beach",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "People build castles on me",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You'll often find me where the ground is soft and warm",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I am where the land meets water.",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I move on a set path with a constant beat, linking places together as I journey on repeat. What am I?",
+    "answer": "Train",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I often come in many connected parts",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I travel on a 'road' made of metal",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Sometimes you might hear me say 'choo choo' as I go by",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I wear bright colors and a painted face, bringing silly smiles to every place. What am I?",
+    "answer": "Clown",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I like to dress in bright colors and act in silly ways",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I might wear a funny hat and red nose",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I often have oversized shoes that add to my funny look",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm nature's sweet snack from a tree or vine, a tasty treat that's simply divine. What am I?",
+    "answer": "Fruit",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "Sometimes I’m sweet, and sometimes I’m a little sour.",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I come in many shapes and sizes—round, oval, or even bumpy.",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Packed with vitamins, I help keep you strong and healthy",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm small and quick with whiskers that twitch, a little critter who moves without a hitch. What am I?",
+    "answer": "Mouse",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I have little ears and a tail that follows me around",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You might see me in stories, cartoons, or even in your home",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I might be seen running away from a cat",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a little engine that runs inside all day and night, pumping a steady beat to keep you feeling right. What am I?",
+    "answer": "Heart",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I'm busy and never stop working",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm a symbol that people draw on cards and in art",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I can beat faster when you're excited or a little scared",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I sit on a head with a glittering shine, a symbol of royalty that’s truly divine. What am I?",
+    "answer": "Crown",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I am sometimes called a treasure",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be made of metal and decorated with jewels",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Kings and queens are often seen with me",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I float in the sky, soft and light, changing shapes as I drift in flight. What am I?",
+    "answer": "Cloud",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "When I gather in groups, I can create shapes",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm soft and sometimes look like a cotton ball",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I often change shapes and move with the wind",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I turn the ordinary into something new, a spark of wonder in all you do. What am I?",
+    "answer": "Magic",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I can make the impossible seem possible.",
+        "strength": "WEAK"
+      },
+      {
+        "text": "In many stories I'm used by wizards or fairies",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "When you hear 'Abracadabra' you might think of me",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I run through the land with a gentle flow, winding my way wherever I go. What am I?",
+    "answer": "River",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I twist and turn as I travel along",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm often found running through valleys and fields",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Boats and rafts sometimes travel along me on my journey",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm bright and yellow with a tangy surprise, a little burst of sour before your eyes. What am I?",
+    "answer": "Lemon",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I'm a little fruit with a curved shape.",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I'm full of vitamin C to help keep you strong",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I'm known for a taste that makes your face scrunch up",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm juicy and sweet from a far-off land, a tropical treat that's simply grand. What am I?",
+    "answer": "Mango",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I come from warm, tropical places",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be eaten fresh or blended into a smoothie",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I have a large pit in the center that you don't eat",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I have a head of many bristles, but I never comb your hair. I dance across the floor, sweeping messes everywhere. What am I?",
+    "answer": "Broom",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I work best on floors and carpets",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I come in handy when you need to tidy up.",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I'm often paired with a dustpan to clean up messes",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I may have four legs but cannot run, Sit on me and have some fun. What am I?",
+    "answer": "Chair",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I give your legs a break",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I sometimes have four sturdy legs",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I give you a comfy place to sit and relax",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I rumble on roads with a mighty roar, carrying big loads from here to the store. What am I?",
+    "answer": "Truck",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I'm big and strong",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I help move heavy things",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "My strong wheels help me roll over long distances",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I dress your top from day to night, with colors and patterns, I feel just right. What am I?",
+    "answer": "Shirt",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I come in many colors and styles",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be plain or have fun designs",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I'm a piece of clothing you wear every day",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a time for fun when friends draw near, with games and laughter and lots of cheer. What am I?",
+    "answer": "Party",
+    "difficulty": "EASY",
+    "hints": [
+      {
+        "text": "I bring people together to laugh and play",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I happen when there’s a reason to celebrate",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m when friends and family get together for fun",
+        "strength": "STRONG"
+      }
+    ]
+  }
+]
