@@ -1,0 +1,477 @@
+[
+  {
+    "clue": "I spin in silence through the sky. With moons nearby as stars drift by. What am I?",
+    "answer": "Planet",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I live in space but I’m not a star",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I circle the sun from near or far",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You live on one — it’s called Earth",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I roar to life and climb the sky, I chase the stars where eagles can’t fly. What am I?",
+    "answer": "Rocket",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I travel upward, not on the ground",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Fire and smoke help me lift off with sound",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I take astronauts to space and back around",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a green kingdom where tall trees touch sky, Home to deer, birds, and foxes sneaking by. What am I?",
+    "answer": "Forest",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I'm full of whispering leaves and hidden trails",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Robin Hood hides here with his merry band",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "A place where bears nap and squirrels play all day",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a sunny patch where colors grow tall, busy with life from the earth to the wall. What am I?",
+    "answer": "Garden",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have butterflies fluttering and bees humming all day",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I grow rows of veggies and flowers in pretty bloom",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m where you plant seeds and pick fresh tomatoes in June",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m a clear square that lets the outside in, framing the world with a glassy grin. What am I?",
+    "answer": "Window",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I show you raindrops and birds flying by",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m made of glass you can open or shut",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You look through me to see stars at night",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I show you back what you show to me, a twin that follows silently. What am I?",
+    "answer": "Mirror",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I reflect your smile and every frown",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m smooth and shiny, made of glass",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You check me before you go out the door",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm a dark path carved through rock or hill, where lights lead you safely under still. What am I?",
+    "answer": "Tunnel",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I echo with footsteps and car whooshes too",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I go under mountains, not over them",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Trains and cars zoom through me to the other side",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm squishy and yellow, I soak up the wet, squeezing out water when bath time is set. What am I?",
+    "answer": "Sponge",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I love to drink up spills on the floor",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m full of holes but not a rock",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Bob SquarePants lives in me under the sea",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I sail stormy seas with a flag black and bold, hunting for treasure in stories of old. What am I?",
+    "answer": "Sponge",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I say 'Arrr!' and search for chests full of gold",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I wear an eye patch and a hook for a hand",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Captain Hook chases Peter Pan on my ship",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I swing from vines with a tail that's so fun, chattering loudly in the warm morning sun. What am I?",
+    "answer": "Monkey",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have a long tail I grab branches with",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Curious George is my mischievous friend",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I love bananas and make funny faces",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I guard your head when you ride fast or fall, shiny and strong, I answer the call. What am I?",
+    "answer": "Helmet",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I strap under your chin for bumpy rides",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I protect your brain on bikes or skates",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Superheroes wear me to fight bad guys",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm fluffy and soft for your sleepy head, a cloud you hug when you're off to bed. What am I?",
+    "answer": "Pillow",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I live on your bed and love sleepy hugs",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m stuffed with feathers or squishy foam",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You punch me to fluff it before lights out",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I catch the world in a tiny black box, freezing smiles and moments that never stop. What am I?",
+    "answer": "Camera",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I click when you say 'cheese!'",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have a lens that sees everything",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You take selfies with me to show your friends",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I carry my house on my back so slow, hiding inside when the winds start to blow. What am I?",
+    "answer": "Turtle",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have a hard shell that's my safe little home",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I walk super slow and love sunny rocks",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Teenage Mutant Ninja ones eat pizza all day",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I breathe fiery flames with wings spread so wide, guarding old castles where treasures hide. What am I?",
+    "answer": "Dragon",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have scales and claws like a giant lizard",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I fly through the sky with a roar so loud",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Puff the Magic one loves a little girl",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I'm sweet and I'm round with a chewy delight, fresh from the oven on a cozy night. What am I?",
+    "answer": "Cookie",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have chocolate chips that melt in your mouth",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I come warm from the oven with a yummy smell",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "The Cookie Monster on Sesame Street loves me best",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I glow soft and warm with a flickering light, melting away through the friendly night. What am I?",
+    "answer": "Candle",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have a wick that burns with a tiny flame",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I drip wax when I shine on birthdays",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You blow me out and make a wish",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I squawk and I chatter with feathers so bright, copying words in the tropical light. What am I?",
+    "answer": "Parrot",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I repeat everything you say back to me",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have colorful wings and a curved beak",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I perch on pirate shoulders and mimic their talk",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I weave a home that shines with thread, I watch in silence where footsteps tread. What am I?",
+    "answer": "Spider",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have eight legs but no shoes to wear",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Some fear me, but I’m small and fair",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I build webs almost anywhere",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I leave a trail but have no feet, I help make words and drawings neat. What am I?",
+    "answer": "Pencil",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I get shorter the more I’m used",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I often live inside a case or pouch",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I help you write, sketch, and learn in school",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m full of chatter, books, and cheer, a place you visit year by year. What am I?",
+    "answer": "School",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "You come to me to learn and play",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have teachers who guide the way",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m where your classroom and friends stay",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m full of stars that shine so bright, a swirling wonder in the night. What am I?",
+    "answer": "Galaxy",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I float in space with stars all around",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be spiral, big, or round",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Our solar system lives inside me",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hop along with ears held high, I twitch my nose as I pass by. What am I?",
+    "answer": "Rabbit",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I have long ears and soft, fluffy fur",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I like to nibble on carrots and greens",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I hop around in fields or gardens unseen",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I have many pieces that fit just right, I take some patience to finish tight. What am I?",
+    "answer": "Puzzle",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I can be made of shapes or pictures",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You put me together piece by piece",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m fun to solve when you have some peace",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m surrounded by water on every side, a quiet place where you can hide. What am I?",
+    "answer": "Island",
+    "difficulty": "MEDIUM",
+    "hints": [
+      {
+        "text": "I’m a patch of land in the sea",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Some people live on me, some just visit",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I can have beaches, forests, or mountains too",
+        "strength": "STRONG"
+      }
+    ]
+  }
+]
