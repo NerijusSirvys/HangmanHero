@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -40,119 +41,103 @@ import com.ns.hangmanhero.utils.SnackbarController
 import com.ns.hangmanhero.viewModel.GameViewmodel
 import com.ns.hangmanhero.viewModel.models.Stage
 import kotlinx.coroutines.launch
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.compose.KoinContext
 import org.koin.compose.viewmodel.koinViewModel
-import org.koin.core.context.startKoin
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+   override fun onCreate(savedInstanceState: Bundle?) {
+      val splash = installSplashScreen()
+      super.onCreate(savedInstanceState)
+      enableEdgeToEdge()
+      setContent {
+         val snackbarHostState = remember { SnackbarHostState() }
 
-        val splash = installSplashScreen()
-
-        super.onCreate(savedInstanceState)
-        startKoin {
-            androidLogger()
-            androidContext(this@MainActivity)
-            modules(appModule)
-        }
-        enableEdgeToEdge()
-        setContent {
-            val snackbarHostState = remember { SnackbarHostState() }
-
-            val scope = rememberCoroutineScope()
-            ObserveAsEvents(
-                flow = SnackbarController.events,
-                key1 = snackbarHostState
-            ) { event ->
-                scope.launch {
-                    snackbarHostState.currentSnackbarData?.dismiss()
-                    snackbarHostState.showSnackbar(
-                        message = event.message,
-                        duration = SnackbarDuration.Short
-                    )
-                }
+         val scope = rememberCoroutineScope()
+         ObserveAsEvents(
+            flow = SnackbarController.events,
+            key1 = snackbarHostState
+         ) { event ->
+            scope.launch {
+               snackbarHostState.currentSnackbarData?.dismiss()
+               snackbarHostState.showSnackbar(
+                  message = event.message,
+                  duration = SnackbarDuration.Short
+               )
             }
+         }
 
-            val vm = koinViewModel<GameViewmodel>()
-            val state by vm.state.collectAsStateWithLifecycle()
+         val vm = koinViewModel<GameViewmodel>()
+         val state by vm.state.collectAsStateWithLifecycle()
 
-            splash.setKeepOnScreenCondition {
-                state.isLoading
-            }
+         splash.setKeepOnScreenCondition {
+            state.isLoading
+         }
 
-            HangmanHeroTheme {
-                KoinContext {
-                    Scaffold(
-                        snackbarHost = { SnackbarHost(snackbarHostState) }
-                    ) { innerPadding ->
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier.fillMaxSize()
-                        ) {
+         HangmanHeroTheme {
+            Scaffold(
+               snackbarHost = { SnackbarHost(snackbarHostState) },
+            ) { innerPadding ->
 
-                            if (state.isLoading) {
-                                Text(text = "Loading...")
-                                return@Box
-                            }
+               Column(
+                  modifier = Modifier
+                     .padding(innerPadding)
+                     .padding(vertical = 10.dp, horizontal = 15.dp)
+                     .fillMaxSize()
+               ) {
+                  if (state.isLoading) {
+                     Text(text = "Loading...")
+                     return@Column
+                  }
 
-                            Column(
-                                modifier = Modifier
-                                    .padding(innerPadding)
-                                    .padding(horizontal = 15.dp)
-                                    .fillMaxWidth(),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                ) {
-                                    Box(
-                                        modifier = Modifier
-                                            .padding(25.dp)
-                                            .align(Alignment.TopStart)
-                                    ) {
-                                        Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+                  // IMAGE AND INFO TABS
+                  Box(
+                     modifier = Modifier
+                        .fillMaxHeight(.3f)
+                        .fillMaxWidth()
 
-                                            InfoTab(
-                                                iconId = R.drawable.icon_key,
-                                                value = state.keyCount
-                                            )
+                  ) {
+                     // IMAGE
+                     Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                     ) {
+                        Image(
+                           painter = painterResource(FrameHelpers.updateFrame(state.remainingGuesses)),
+                           contentDescription = null,
+                           alpha = 0.6f,
+                        )
+                     }
 
-                                            InfoTab(
-                                                iconId = R.drawable.icon_check,
-                                                value = state.completeLevels
-                                            )
-                                        }
-                                    }
-                                    Image(
-                                        painter = painterResource(FrameHelpers.updateFrame(state.remainingGuesses)),
-                                        contentDescription = null,
-                                        alpha = 0.6f
-                                    )
-                                }
+                     Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+                        InfoTab(
+                           iconId = R.drawable.icon_key,
+                           value = state.keyCount
+                        )
 
-                                Spacer(Modifier.height(25.dp))
-
-                                Column(modifier = Modifier.fillMaxSize()) {
-                                    AnimatedContent(
-                                        targetState = state.stage,
-                                    ) {
-                                        when (it) {
-                                            Stage.Game -> GamePlayStage(state = state, onAction = vm::onGameAction)
-                                            Stage.GameOver -> GameOverScreen(onAction = vm::onGameAction)
-                                            Stage.NextLevel -> NextLevelScreen(onAction = vm::onGameAction)
-                                            Stage.GameCompleted -> GameCompleteStage(onAction = vm::onGameAction)
-                                        }
-                                    }
-                                }
-                            }
+                        InfoTab(
+                           iconId = R.drawable.icon_check,
+                           value = state.completeLevels
+                        )
+                     }
+                  }
+                  Spacer(Modifier.height(25.dp))
+                  Column(
+                     modifier = Modifier
+                        .fillMaxSize()
+                  ) {
+                     AnimatedContent(
+                        targetState = state.stage,
+                     ) {
+                        when (it) {
+                           Stage.Game -> GamePlayStage(state = state, onAction = vm::onGameAction)
+                           Stage.GameOver -> GameOverScreen(onAction = vm::onGameAction)
+                           Stage.NextLevel -> NextLevelScreen(onAction = vm::onGameAction)
+                           Stage.GameCompleted -> GameCompleteStage(onAction = vm::onGameAction)
                         }
-                    }
-                }
+                     }
+                  }
+               }
             }
-        }
-    }
+         }
+      }
+   }
 }

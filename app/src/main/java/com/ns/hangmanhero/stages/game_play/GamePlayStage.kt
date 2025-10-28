@@ -19,50 +19,50 @@ import com.ns.hangmanhero.state.GameState
 
 @Composable
 fun GamePlayStage(
-    state: GameState,
-    onAction: (GameActions) -> Unit
+   state: GameState,
+   onAction: (GameActions) -> Unit
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(25.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        ComponentText(
-            text = state.clue,
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp,
-        )
+   Column(
+      verticalArrangement = Arrangement.spacedBy(25.dp),
+      horizontalAlignment = Alignment.CenterHorizontally
+   ) {
+      ComponentText(
+         text = state.clue,
+         textAlign = TextAlign.Center,
+         fontSize = 20.sp,
+      )
 
-        Row {
-            state.answer.forEach {
-                CharacterElement(
-                    modifier = Modifier.size(40.dp),
-                    character = it.letter,
-                    show = it.show,
-                    isKeyholder = it.keyHolder,
-                )
-            }
-        }
+      Row {
+         state.answer.forEach {
+            CharacterElement(
+               modifier = Modifier.size(40.dp),
+               character = it.letter,
+               show = it.show,
+               isKeyholder = it.keyHolder,
+            )
+         }
+      }
 
-        Column {
-            state.hints.forEach { (k, v) ->
-                HintElement(
-                    keyCount = v.cost,
-                    text = v.text,
-                    show = !v.isEnabled,
-                    onClick = { onAction(GameActions.ShowHint(k)) }
-                )
-            }
-        }
+      Column {
+         state.hints.forEach { (k, v) ->
+            HintElement(
+               keyCount = v.cost,
+               text = v.text,
+               show = !v.isEnabled,
+               onClick = { onAction(GameActions.ShowHint(k)) }
+            )
+         }
+      }
 
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(7.dp)
-        ) {
-            state.keyboard.forEach { (k, v) ->
-                KeyboardKeyRow(
-                    keys = v,
-                    onClick = { onAction.invoke(GameActions.MakeAGuess(it, k)) })
-            }
-        }
-    }
+      Column(
+         horizontalAlignment = Alignment.CenterHorizontally,
+         verticalArrangement = Arrangement.spacedBy(7.dp)
+      ) {
+         state.keyboard.forEach { (k, v) ->
+            KeyboardKeyRow(
+               keys = v,
+               onClick = { onAction.invoke(GameActions.MakeAGuess(it, k)) })
+         }
+      }
+   }
 }
