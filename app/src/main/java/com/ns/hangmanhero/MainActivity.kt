@@ -121,8 +121,7 @@ class MainActivity : ComponentActivity() {
                   }
                   Spacer(Modifier.height(25.dp))
                   Column(
-                     modifier = Modifier
-                        .fillMaxSize()
+                     modifier = Modifier.fillMaxSize()
                   ) {
                      AnimatedContent(
                         targetState = state.stage,
