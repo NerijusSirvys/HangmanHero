@@ -1,0 +1,477 @@
+[
+  {
+    "clue": "I keep you warm both night and day, but I never have a word to say. What am I?",
+    "answer": "Blanket",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m soft and cozy to the touch",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You pull me close when it’s cold",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m found on your bed when you sleep",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I swim the seas with arms of eight, moving in ways that fascinate. What am I?",
+    "answer": "Octopus",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I live deep under the sea",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have many arms but no bones",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m known for squirting ink to escape",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I rise with air and float so high, drifting softly through the sky. What am I?",
+    "answer": "Balloon",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m filled with air or gas",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Kids love me at parties",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "If you pop me, I go ‘bang!’",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m found in tales both bright and rare, with one long horn beyond compare. What am I?",
+    "answer": "Unicorn",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a creature of magic",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I look like a horse with something extra",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I have a single horn on my head",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I capture moments that stand still, colors and faces, at your will. What am I?",
+    "answer": "Picture",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I can hang on walls",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I show people, places, or things",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m what a camera helps you make",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I guide young minds both day and night, helping them learn to read and write. What am I?",
+    "answer": "Teacher",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I work in a classroom",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I help students understand new things",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m the one who teaches you at school",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I come once in a while, a break from the race, where fun and rest both have a place. What am I?",
+    "answer": "Holiday",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a special time to relax",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You might travel or celebrate during me",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m when there’s no school or work",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I can be short, I can be long, I take you places where you belong. What am I?",
+    "answer": "Journey",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I involve moving from one place to another",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can happen by car, train, or plane",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m another word for a trip or travel",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I stand tall with smoke in the air, guiding it out without a care. What am I?",
+    "answer": "Chimney",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I sit on top of houses",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I let something escape upward",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Santa uses me to come inside!",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I pop and crackle, light as air, a tasty treat beyond compare. What am I?",
+    "answer": "Popcorn",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I start small and become fluffy",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m often eaten during movies",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m made by heating up corn kernels",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I echo cheers both loud and clear, where players run and crowds can cheer. What am I?",
+    "answer": "Stadium",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a very large place",
+        "strength": "WEAK"
+      },
+      {
+        "text": "People gather here to watch games",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m where football or concerts take place",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I help you see what’s far or near, resting gently upon your ear. What am I?",
+    "answer": "Glasses",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I come in pairs and sit on your nose",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I make blurry things look clear",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You wear me to help your eyes see better",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m leafy, green, and full of might, good for health but not a bite’s delight. What am I?",
+    "answer": "Spinach",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a green vegetable",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m full of vitamins and iron",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m what made Popeye strong",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I seek to know and test and learn, through questions asked at every turn. What am I?",
+    "answer": "Science",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m about studying the world around us",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I use experiments to find answers",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a school subject about nature, energy, and life",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m full of smells and tasty sights, where meals are made for days and nights. What am I?",
+    "answer": "Kitchen",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a busy room in the house",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You use me to cook food",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m where the oven and fridge stay",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m full of sand, a place to play, where castles rise in a happy way. What am I?",
+    "answer": "Sandbox",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "Kids like to dig and build in me",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m often found in playgrounds",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a box full of sand for children to play in",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I roll on fields both wide and green, strong and loud, a farmer’s machine. What am I?",
+    "answer": "Tractor",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m big, heavy, and move on farms",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I pull things through soil",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Farmers use me to plow fields",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I waddle around, dressed in black and white, I love the cold and can’t take flight. What am I?",
+    "answer": "Penguin",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a bird that cannot fly",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I live where it’s icy and cold",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I slide on my belly across the snow",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I make a sound both sharp and clear, a little note for all to hear. What am I?",
+    "answer": "Whistle",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m small but can be loud",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You use air to make me sing",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Referees and lifeguards often use me",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I shine a light when it’s dark around, guiding your steps without a sound. What am I?",
+    "answer": "Lantern",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m used when it’s dark outside",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be carried by hand",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a portable light often used for camping",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hide under beds or in dreams at night, sometimes scary, sometimes polite. What am I?",
+    "answer": "Monster",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m often in stories or movies",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Kids sometimes think I live under the bed",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a make-believe creature that can be scary or funny",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I swing between two trees with ease, perfect for naps in a gentle breeze. What am I?",
+    "answer": "Hammock",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m made of fabric and rope",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I hang between two poles or trees",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "People rest or nap in me outdoors",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m small and soft, a safe little space, where babies rest in a cozy place. What am I?",
+    "answer": "Playpen",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m used for little kids",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I keep babies safe while they play",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m like a small fenced area for toddlers",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I sparkle bright and love to swing, from ears I hang like a shiny thing. What am I?",
+    "answer": "Earring",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m a small piece of jewelry",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I usually come in pairs",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I hang from your ears to look pretty",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I follow you wherever you go, carrying your things to and fro. What am I?",
+    "answer": "Baggage",
+    "difficulty": "HARD",
+    "hints": [
+      {
+        "text": "I’m used when people travel",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I carry clothes and other items",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m another word for luggage",
+        "strength": "STRONG"
+      }
+    ]
+  }
+]

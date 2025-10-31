@@ -1,0 +1,477 @@
+[
+  {
+    "clue": "I help you mark the days and months with numbers neat and clear. What am I?",
+    "answer": "Calendar",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I hang on walls or sit on desks",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I show months, weeks, and days",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "People use me to plan appointments and events",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I am huge and gray with a long trunk to spare, roaming lands with a wrinkled stare. What am I?",
+    "answer": "Elephant",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m one of the largest land animals",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have a long trunk and big ears",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m known for my tusks and thick, wrinkled skin",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I carry your books and snacks upon my back, with straps to hold me snug and tight. What am I?",
+    "answer": "Backpack",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "Students wear me to school",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have straps to go over your shoulders",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I hold notebooks, pencils, and lunch inside",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hold blank pages that wait for words and art, a quiet place where ideas start. What am I?",
+    "answer": "Notebook",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I open to reveal many pages",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You write notes and draw inside me",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Students use me to take class notes every day",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I stomp and roar in tales of old, with sharp teeth and a story bold. What am I?",
+    "answer": "Dinosaur",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I lived long ago, not today",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I come in many shapes — some had wings, some had long necks",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You find my bones as fossils in museums",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I have two slices, fillings in between, a tasty bite that’s often seen. What am I?",
+    "answer": "Sandwich",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "You might bring me for lunch",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I usually have bread with things inside",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "People make me with cheese, ham, veggies, or peanut butter",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hide shiny things and maps of gold, a secret place where stories are told. What am I?",
+    "answer": "Treasure",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "Pirates often search for me",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I can be jewels, coins, or something very precious",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Maps sometimes lead to my hidden chest",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I blaze and fly like a fiery ball across the sky or in a game’s call. What am I?",
+    "answer": "Fireball",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a ball with a bright, burning look",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I may appear in stories, games, or magical scenes",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Think of a glowing orb that shoots through the air",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I rise up high with peaks and snow, a giant place where cold winds blow. What am I?",
+    "answer": "Mountain",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m taller than hills",
+        "strength": "WEAK"
+      },
+      {
+        "text": "People climb me for views and hikes",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I have rocky slopes and sometimes snow at the top",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I have three sides and corners three, a simple shape as plain can be. What am I?",
+    "answer": "Triangle",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a basic shape in geometry",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have three straight edges and three points",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "A pyramid’s base can be this shape if seen from above",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I live inside a box and blink and hum, helping you work and play and have some fun. What am I?",
+    "answer": "Computer",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I can connect to the internet",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You use me to type, play games, and browse",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I might be a laptop or a desktop machine",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I fly through the air when swung just right, a round friend in a game of might. What am I?",
+    "answer": "Baseball",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m used in a bat-and-ball sport",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Players pitch, hit, and catch me",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m white with red stitching",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I warm the day with golden light, lifting faces up and bright. What am I?",
+    "answer": "Sunshine",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I come from the sky on clear days",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You feel me on your skin at the park",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m sunlight that makes the world bright and warm",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I help heal and mend when people ache, a place of care for everyone’s sake. What am I?",
+    "answer": "Hospital",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a big building where doctors work",
+        "strength": "WEAK"
+      },
+      {
+        "text": "People come to me when they’re sick or hurt",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I have nurses, doctors, and many patient rooms",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I join your arm to body near, helping lift and carry things you bear. What am I?",
+    "answer": "Shoulder",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m part of your body between arm and neck",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You shrug me when you don’t know an answer",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "People carry bags on me and pat me for comfort",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I test your strength in long-turned ways, a race through miles that earns praise. What am I?",
+    "answer": "Marathon",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a long run, much longer than a sprint",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Runners train for me for many weeks",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m traditionally about 26 miles long",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I capture color on a stretched frame, a scene or face that earns my name. What am I?",
+    "answer": "Painting",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I often hang on walls to be seen",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m made using brushes, paint, or tools",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Artists create me to show scenes, people, or imagination",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hang around your neck to shine and gleam, a pretty piece that adds a dream. What am I?",
+    "answer": "Necklace",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a piece of jewelry",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I often hang from a chain around the neck",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "People wear me for special events or to look fancy",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m a game of kicks with goals in sight, played on fields from day to night. What am I?",
+    "answer": "Football",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m played with a ball and goals",
+        "strength": "WEAK"
+      },
+      {
+        "text": "Players kick and pass the ball to score",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Teams try to get the ball into the net to win",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I wear a red nose and antlers too, I pull a sleigh where the cold winds blew. What am I?",
+    "answer": "Reindeer",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m an animal linked to winter tales",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I have antlers and often live in cold places",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Santa’s sleigh is pulled by a team of us",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I hide your plates and cups behind my door, a tidy place on the kitchen floor. What am I?",
+    "answer": "Cupboard",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I have shelves behind a door",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You store dishes, food, or cups in me",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a kitchen cabinet used to keep things neat",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I cut and snip with two sharp blades, used for crafting or tidy trades. What am I?",
+    "answer": "Scissors",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I have two handles to hold",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You press my handles together to cut paper",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a common classroom and craft tool for cutting",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I flutter small with dotted wings, a tiny friend that summer brings. What am I?",
+    "answer": "Ladybird",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a small insect often seen on plants",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I usually have bright spots on my back",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "Some call me a ladybug — I help eat harmful pests",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I grow below the ground in purple or red, a root that adds color to every spread. What am I?",
+    "answer": "Beetroot",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m a vegetable that grows underground",
+        "strength": "WEAK"
+      },
+      {
+        "text": "I’m often dark red or purple in color",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "You can roast or boil me and add me to salads",
+        "strength": "STRONG"
+      }
+    ]
+  },
+  {
+    "clue": "I’m sweet and round with a hole in the middle, a tasty treat for mornings or a snack in the middle. What am I?",
+    "answer": "Doughnut",
+    "difficulty": "VERY_HARD",
+    "hints": [
+      {
+        "text": "I’m often glazed or sprinkled",
+        "strength": "WEAK"
+      },
+      {
+        "text": "You might eat me at breakfast with coffee or milk",
+        "strength": "MEDIUM"
+      },
+      {
+        "text": "I’m a ring-shaped fried or baked sweet treat",
+        "strength": "STRONG"
+      }
+    ]
+  }
+]

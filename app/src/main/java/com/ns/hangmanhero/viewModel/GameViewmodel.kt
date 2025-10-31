@@ -194,13 +194,22 @@ class GameViewmodel(
          val easy = context.resources.openRawResource(R.raw.easy)
          val easyJson = easy.readBytes().decodeToString()
          val easyLevels = Json.decodeFromString<List<Level>>(easyJson)
+         service.populateData(easyLevels)
 
          val medium = context.resources.openRawResource(R.raw.medium)
          val mediumJson = medium.readBytes().decodeToString()
          val mediumLevels = Json.decodeFromString<List<Level>>(mediumJson)
-
-         service.populateData(easyLevels)
          service.populateData(mediumLevels)
+
+         val hard = context.resources.openRawResource(R.raw.hard)
+         val hardJson = hard.readBytes().decodeToString()
+         val hardLevels = Json.decodeFromString<List<Level>>(hardJson)
+         service.populateData(hardLevels)
+
+         val veryHard = context.resources.openRawResource(R.raw.very_hard)
+         val veryHardJson = veryHard.readBytes().decodeToString()
+         val veryHardLevels = Json.decodeFromString<List<Level>>(veryHardJson)
+         service.populateData(veryHardLevels)
 
          val editor = sharedPref.edit()
          editor.putBoolean("db_populated", true)
